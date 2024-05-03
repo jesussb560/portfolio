@@ -25,7 +25,7 @@ export const appTheme = createTheme({
     },
     typography: {
         h1: { fontFamily: titleFont, fontSize: 60, color: white, fontWeight: 600 },
-        h2: { fontFamily: titleFont, fontSize: 40, color: tertiaryColor, fontWeight: 300 },
+        h2: { fontFamily: titleFont, fontSize: 45, color: white, fontWeight: 600 },
         h3: { fontFamily: titleFont, fontSize: 30, color: white, fontWeight: 600 },
         h4: { fontFamily: titleFont, fontSize: 25, color: white, fontWeight: 600 },
         h5: { fontFamily: titleFont, fontSize: 20, color: white, fontWeight: 600 },
@@ -62,9 +62,16 @@ export const appTheme = createTheme({
             defaultProps: {
                 PaperProps: {
                     sx: {
-                        backgroundColor: tertiaryColor,
+                        backgroundColor: primaryColorV2,
                         color: white,
                     },
+                },
+            },
+        },
+        MuiStepConnector: {
+            styleOverrides: {
+                line: {
+                    borderColor: 'red', // Cambia el color de la línea de progreso
                 },
             },
         },
