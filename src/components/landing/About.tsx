@@ -1,12 +1,11 @@
 
-import { Code } from '@mui/icons-material';
 import AppsIcon from '@mui/icons-material/Apps';
 import ErrorIcon from '@mui/icons-material/Error';
 import LanguageIcon from '@mui/icons-material/Language';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { Container, Grid, Typography } from "@mui/material";
-import { DockerOriginal, ExpressOriginal, GitOriginal, JunitOriginal, PostgresqlOriginal, SpringOriginal } from 'devicons-react';
+import { DockerOriginal, ExpressOriginal, GitOriginal, JunitOriginal, PostgresqlOriginal, ReactOriginal, SpringOriginal } from 'devicons-react';
 import { IconCard } from "../global/IconCard";
 import { MiniIconCard } from '../global/MiniIconCard';
 
@@ -66,8 +65,8 @@ export const About = () => {
                             </Grid>
                             <Grid item xs={12} sm={6} md={3} textAlign={"center"}>
                                 <MiniIconCard
-                                    icon={<Code sx={{ fontSize: 40 }} color="success" />}
-                                    title="Rest / Soap"
+                                    icon={<ReactOriginal size={40} color="success" />}
+                                    title="React"
                                 />
                             </Grid>
                         </Grid>

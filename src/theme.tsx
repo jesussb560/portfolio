@@ -2,7 +2,8 @@ import { Shadows, createTheme } from "@mui/material";
 
 export const primaryColor = '#0d1016';
 export const primaryColorV2 = '#161C25';
-export const secondaryColor = '#FCA311';
+// export const secondaryColor = '#FCA311';
+export const secondaryColor = '#FF5733';
 export const tertiaryColor = '#9999A1';
 export const white = '#fff'
 
@@ -39,6 +40,7 @@ export const appTheme = createTheme({
         MuiCard: {
             styleOverrides: {
                 root: {
+                    borderRadius: 15,
                     backgroundColor: primaryColor
                 },
             },
@@ -71,9 +73,53 @@ export const appTheme = createTheme({
         MuiStepConnector: {
             styleOverrides: {
                 line: {
-                    borderColor: 'red', // Cambia el color de la línea de progreso
+                    borderColor: secondaryColor,
+                    width: 2 // Cambia el color de la línea de progreso
                 },
             },
         },
+
+        MuiStepIcon: {
+            styleOverrides: {
+                "root": {
+                    "&.Mui-active": {
+                        "color": primaryColorV2,
+                    },
+                    "&.Mui-completed": {
+                        "color": secondaryColor,
+                    }
+                }
+
+
+            }
+        },
+        MuiDivider: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: primaryColor,
+                    borderBottomWidth: '2px',
+                    borderRadius: 30
+                }
+            }
+        },
+        MuiTab: {
+            styleOverrides: {
+                root: {
+                    color: white,
+                    '&.Mui-selected': {
+                        color: secondaryColor, // Color del texto del tab activo
+                    },
+                },
+            },
+        },
+        MuiChip: {
+            styleOverrides: {
+                root: {
+                    backgroundColor: secondaryColor,
+                    borderRadius: 8,
+                    font: titleFont
+                }
+            }
+        }
     }
 });

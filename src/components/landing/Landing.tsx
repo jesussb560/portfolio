@@ -16,7 +16,7 @@ export const Landing = () => {
                 <Grid item xs={12} sx={{ backgroundColor: primaryColorV2 }}>
                     <About />
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={12} >
                     <Experience />
                 </Grid>
             </Grid>
