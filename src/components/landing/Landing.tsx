@@ -1,6 +1,7 @@
 import { Grid } from "@mui/material"
-import { primaryColorV2 } from "../../theme"
+import { primaryColor, primaryColorV2, secondaryColor } from "../../theme"
 import { About } from "./About"
+import { Projects } from "./Projects"
 import { Title } from "./Title"
 import { Experience } from "./Experience"
 
@@ -16,8 +17,11 @@ export const Landing = () => {
                 <Grid item xs={12} sx={{ backgroundColor: primaryColorV2 }}>
                     <About />
                 </Grid>
-                <Grid item xs={12} >
+                <Grid item xs={12}>
                     <Experience />
+                </Grid>
+                <Grid item xs={12} sx={{ backgroundColor: primaryColorV2 }}>
+                    <Projects />
                 </Grid>
             </Grid>
 

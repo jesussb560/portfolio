@@ -1,125 +1,70 @@
-import { TabContext, TabList, TabPanel } from "@mui/lab";
-import { Container, Grid, Tab, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
 import { useState } from "react";
-import { JobStep } from "../../types/landing.type";
-import { JobCard } from "../global/JobCard";
+import { primaryColorV2 } from "../../theme";
 
-const jobs: JobStep[] = [
+const steps = [
     {
-        label: 'Proyectos profesionales',
-        description: 'Sistemas en los que he participado como desarrollador de manera profesional.',
-        projects: [
-            {
-                title: 'GIRA',
-                workplace: 'Inosoft',
-                description: `Aplicación móvil que permite recibir puntos a cambio de reciclar materiales de todo tipo. Estos puntos son utilizados como descuento en las compras en una gran cadena de supermercados en Ecuador.`,
-                technologies: [
-                    'Spring Boot',
-                    'PostgreSQL',
-                    'Git',
-                    'Thymeleaf',
-                    'JavaScript'
-                ]
-            },
-            {
-                title: 'Vipure Monitor',
-                workplace: 'Inosoft',
-                description: 'Aplicación móvil para el monitoreo de parametros en maquinas y procesos relacionados con el tratamiento y reúso del agua.',
-                technologies: [
-                    'Spring Boot',
-                    'Git',
-                    'Flutter'
-                ]
-            },
-            {
-                title: 'RAS2',
-                workplace: 'Inosoft',
-                description: 'Sed ut perspiciatis unde em quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eo',
-                technologies: [
-                    'NodeJs',
-                    'React'
-                ]
-            }
-        ]
+        label: 'Inosoft',
+        time: '2021 - presente',
+        description: `Propuse y lideré la implementación de diferentes tecnologías, prácticas y arquitecturas de software para proyectos de clientes importantes, resultando en aumentos de rendimiento y productividad significativos en comparación con sistemas anteriores.`,
     },
     {
-        label: 'Proyectos personales',
-        description: 'Sistemas desarrollados a modo de aprendizaje o demostración.',
-        projects: [
-            {
-                title: 'Procesamiento de facturas',
-                workplace: 'Inosoft',
-                image: 'https://gira.com.ec/wp-content/uploads/2022/12/iMAGEN-TELEFONO-APP-679x1024.png',
-                description: 'blabla',
-                technologies: [
-                    'Spring boot',
-                    'PostgreSQL'
-                ]
-            }
-        ]
-    }
-]
-
-// var settings = {
-//     dots: true,
-//     infinite: true,
-//     // speed: 500,
-//     slidesToShow: 1,
-//     slidesToScroll: 1,
-//     mobileFirst: true,
-//     responsive: [{
-//         breakpoint: 600,
-//         settings: {
-//             slidesToShow: 1,
-//             slidesToScroll: 1,
-//             initialSlide: 2,
-//         }
-//     }]
-// };
-
+        label: '???',
+        time: '',
+        description: `...`,
+    },
+];
 
 export const Experience = () => {
+    const [activeStep, setActiveStep] = useState(0);
 
-    // const [activeStep, setActiveStep] = useState(0);
-
-    // const handleNext = () => {
-    //     setActiveStep((prevActiveStep) => ((prevActiveStep + 2) > jobs.length) ? (prevActiveStep - 1) : (prevActiveStep + 1));
-    // };
-    const [value, setValue] = useState('0');
-    const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
-        setValue(newValue);
+    const handleNext = () => {
+        setActiveStep((prevActiveStep) => ((prevActiveStep + 2) > steps.length) ? prevActiveStep - 1 : prevActiveStep + 1);
     };
 
     return (
         <Container maxWidth="xl">
             <Grid container spacing={1} pt="20vh" pb={"25vh"} >
                 <Grid item xs={12} md={12} lg={12} textAlign="center" >
-                    <Typography variant="h2" mb={2}>Mis proyectos</Typography>
-                    <Typography variant="body1">
+                    <Typography variant="h2" mb={2} display={"inline"}>Mi </Typography>
+                    <Typography variant="h2" mb={2} display={"inline"} color={"secondary"}>experiencia </Typography>
+                    <Typography variant="h2" mb={2} display={"inline"}>laboral</Typography>
+                    {/* <Typography variant="body1">
                         A lo largo de los años, he participado en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.
-                    </Typography>
+                    </Typography> */}
                 </Grid>
-                <Grid item xs={12} sm={12} md={12} lg={12} mt={4}>
-                    <TabContext value={`${value}`}>
-                        <TabList onChange={handleChange} centered>
-                            {jobs.map((job, i) => (
-                                <Tab label={job.label} value={`${i}`} />
+                <Grid xs={12}>
+                    <Box sx={{}}>
+                        <Stepper activeStep={activeStep} orientation="vertical">
+                            {steps.map((step, i) => (
+                                <Step key={step.label}>
+                                    <StepLabel>
+                                        <Typography variant="h4">{step.label}</Typography>
+                                    </StepLabel>
+                                    <StepContent>
+                                        <Typography variant="body1" mb={2}>{step.time}</Typography>
+                                        <Box sx={{ border: `2px solid ${primaryColorV2}`, padding: 2, borderRadius: 4 }}>
+                                            <Typography variant="subtitle2">{step.description}</Typography>
+                                        </Box>
+                                        <Box sx={{ mb: 2, mt: 2 }}>
+                                            <div>
+                                                <Button
+                                                    variant="contained"
+                                                    color="secondary"
+                                                    onClick={handleNext}
+                                                    sx={{ mt: 1, mr: 1 }}
+                                                >
+                                                    {i === steps.length - 1 ? 'Volver' : 'Continuar'}
+                                                </Button>
+                                            </div>
+                                        </Box>
+                                    </StepContent>
+                                </Step>
                             ))}
-                        </TabList>
-                        {jobs.map((_job, i) => (
-                            <TabPanel value={`${i}`} key={i}>
-                                <Grid container>
-                                    {jobs[Number(value)].projects.map((project, i) => (
-                                        <Grid md={6} mb={2}>
-                                            <JobCard i={i} item={project} />
-                                        </Grid>
-                                    ))}
-                                </Grid>
-                            </TabPanel>
-                        ))}
-                    </TabContext>
+                        </Stepper>
+                    </Box>
                 </Grid>
             </Grid>
         </Container>
-    )
+    );
 }

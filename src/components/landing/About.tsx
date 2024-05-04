@@ -1,25 +1,28 @@
 
+import { Code } from '@mui/icons-material';
 import AppsIcon from '@mui/icons-material/Apps';
 import ErrorIcon from '@mui/icons-material/Error';
 import LanguageIcon from '@mui/icons-material/Language';
 import ThumbUpAltIcon from '@mui/icons-material/ThumbUpAlt';
 import TimelineIcon from '@mui/icons-material/Timeline';
 import { Container, Grid, Typography } from "@mui/material";
-import { DockerOriginal, ExpressOriginal, GitOriginal, JunitOriginal, PostgresqlOriginal, ReactOriginal, SpringOriginal } from 'devicons-react';
+import { DockerOriginal, ExpressOriginal, GitOriginal, JunitOriginal, PostgresqlOriginal, SpringOriginal } from 'devicons-react';
 import { IconCard } from "../global/IconCard";
 import { MiniIconCard } from '../global/MiniIconCard';
 
 export const About = () => {
     return (
         <Container maxWidth="xl">
-            <Grid container spacing={2} pt="20vh" pb={"25vh"} alignItems="flex-end">
+            <Grid container spacing={2} pt="20vh" pb={"25vh"} display={"flex"} justifyContent={"space-between"}>
                 <Grid item xs={12} md={12} lg={6} textAlign="left">
-                    <Typography variant="h2" mb={2}>Sobre mí</Typography>
-                    <Typography variant="body1">
-                        Soy un desarrollador web especializado en la creación y mantenimiento de soluciones digitales. Mi enfoque principal está en el desarrollo Backend, donde he participado en diversos proyectos para clientes nacionales y extranjeros, que van desde sitios web corporativos hasta aplicaciones móviles de gran complejidad.
-                    </Typography>
+                    <Grid item xs={12} sm={12} md={12} lg={12}>
+                        <Typography variant="h2" mb={2}>Sobre mí</Typography>
+                        <Typography variant="body1">
+                            Soy un desarrollador web especializado en la creación y mantenimiento de soluciones digitales. Mi enfoque principal está en el desarrollo Backend, donde he participado en diversos proyectos para clientes nacionales y extranjeros, que van desde sitios web corporativos hasta aplicaciones móviles de gran complejidad.
+                        </Typography>
+                    </Grid>
                     {/* este */}
-                    <Grid item xs={12} sm={12} md={12} lg={12} mt={4}>
+                    <Grid item xs={12} sm={12} md={12} lg={12} mt={4} justifyContent="flex-end">
                         <Grid container spacing={1}>
                             <Grid item xs={12} sm={6} md={3} textAlign={"center"}>
                                 <MiniIconCard
@@ -65,8 +68,8 @@ export const About = () => {
                             </Grid>
                             <Grid item xs={12} sm={6} md={3} textAlign={"center"}>
                                 <MiniIconCard
-                                    icon={<ReactOriginal size={40} color="success" />}
-                                    title="React"
+                                    icon={<Code sx={{ fontSize: 40 }} color="success" />}
+                                    title="Rest / Soap"
                                 />
                             </Grid>
                         </Grid>

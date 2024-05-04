@@ -1,12 +1,11 @@
-import { Card, CardContent, Chip, Grid, Stack, Typography } from "@mui/material"
-import { primaryColorV2 } from "../../theme"
-import { StepProject } from "../../types/landing.type"
-import ArrowOutwardIcon from '@mui/icons-material/ArrowOutward';
+import { Card, CardContent, Chip, Grid, Stack, Typography } from "@mui/material";
+import { primaryColor, primaryColorV2, secondaryColor } from "../../theme";
+import { StepProject } from "../../types/landing.type";
 
 export const JobCard = ({ item, i }: { item: StepProject, i: number }) => {
     return (
         <Grid mx={1} key={i}>
-            <Card sx={{ backgroundColor: primaryColorV2, height: '100%' }}>
+            <Card sx={{ border: `2px solid ${primaryColor}`, backgroundColor: primaryColorV2, height: '100%' }}>
                 <CardContent sx={{
                     padding: 0, "&:last-child": {
                         paddingBottom: 0
@@ -23,14 +22,14 @@ export const JobCard = ({ item, i }: { item: StepProject, i: number }) => {
                             </Grid>
                         </Grid>
                     </Grid>
-                    <Grid sx={{ backgroundColor: '#2E3844' }} xl={12} p={2}>
+                    <Grid xl={12} p={2}>
                         <Grid item xs={12} mb={5} sx={{ minHeight: 150 }}>
-                            <Typography variant="subtitle1">{item.description}</Typography>
+                            <Typography variant="subtitle2">{item.description}</Typography>
                         </Grid>
                         <Grid container mt={1} spacing={0}>
                             <Stack direction="row" spacing={1}>
                                 {item.technologies.map(tec => (
-                                    <Chip label={tec} />
+                                    <Chip label={tec} sx={{ backgroundColor: secondaryColor, color: 'black' }} />
                                 ))}
                             </Stack>
                         </Grid>

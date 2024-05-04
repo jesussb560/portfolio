@@ -3,7 +3,7 @@ import { Shadows, createTheme } from "@mui/material";
 export const primaryColor = '#0d1016';
 export const primaryColorV2 = '#161C25';
 // export const secondaryColor = '#FCA311';
-export const secondaryColor = '#FF5733';
+export const secondaryColor = '#F05230';
 export const tertiaryColor = '#9999A1';
 export const white = '#fff'
 
@@ -26,13 +26,15 @@ export const appTheme = createTheme({
     },
     typography: {
         h1: { fontFamily: titleFont, fontSize: 60, color: white, fontWeight: 600 },
-        h2: { fontFamily: titleFont, fontSize: 45, color: white, fontWeight: 600 },
+        h2: { fontFamily: titleFont, fontSize: 48, color: white, fontWeight: 600 },
         h3: { fontFamily: titleFont, fontSize: 30, color: white, fontWeight: 600 },
         h4: { fontFamily: titleFont, fontSize: 25, color: white, fontWeight: 600 },
         h5: { fontFamily: titleFont, fontSize: 20, color: white, fontWeight: 600 },
         h6: { fontFamily: titleFont, fontSize: 15, color: white, fontWeight: 600 },
         body1: { fontFamily: bodyFont, color: tertiaryColor, fontSize: 20 },
+        body2: { fontFamily: bodyFont, color: primaryColor, fontSize: 20, fontWeight: 500 },
         subtitle1: { fontFamily: bodyFont, color: tertiaryColor, fontSize: 20, fontWeight: 300 },
+        subtitle2: { fontFamily: bodyFont, color: white, fontSize: 20, fontWeight: 400 },
         caption: { fontFamily: bodyFont, fontSize: 18, color: tertiaryColor },
     },
     shadows: Array(25).fill("none") as Shadows,
@@ -120,6 +122,6 @@ export const appTheme = createTheme({
                     font: titleFont
                 }
             }
-        }
+        },
     }
 });
