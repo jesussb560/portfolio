@@ -4,6 +4,7 @@ import { About } from "./About"
 import { Projects } from "./Projects"
 import { Title } from "./Title"
 import { Experience } from "./Experience"
+import { Skills } from "./Skills"
 
 // const title = 'Portfolio'
 export const Landing = () => {
@@ -19,6 +20,9 @@ export const Landing = () => {
                 </Grid>
                 <Grid item xs={12}>
                     <Experience />
+                </Grid>
+                <Grid item xs={12} >
+                    <Skills />
                 </Grid>
                 <Grid item xs={12} sx={{ backgroundColor: primaryColorV2 }}>
                     <Projects />

@@ -6,7 +6,7 @@ import { JobCard } from "../global/JobCard";
 
 const jobs: JobStep[] = [
     {
-        label: 'Proyectos profesionales',
+        label: 'Profesionales',
         description: 'Sistemas en los que he participado como desarrollador de manera profesional.',
         projects: [
             {
@@ -17,7 +17,6 @@ const jobs: JobStep[] = [
                     'Spring Boot',
                     'PostgreSQL',
                     'Git',
-                    'Thymeleaf',
                     'JavaScript'
                 ]
             },
@@ -37,13 +36,14 @@ const jobs: JobStep[] = [
                 description: 'Sed ut perspiciatis unde em quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eo',
                 technologies: [
                     'NodeJs',
+                    'Git',
                     'React'
                 ]
             }
         ]
     },
     {
-        label: 'Proyectos personales',
+        label: 'Personales',
         description: 'Sistemas desarrollados a modo de aprendizaje o demostración.',
         projects: [
             {
@@ -88,7 +88,7 @@ export const Projects = () => {
                             <TabPanel value={`${i}`} key={i}>
                                 <Grid container>
                                     {jobs[Number(value)].projects.map((project, i) => (
-                                        <Grid md={6} mb={2}>
+                                        <Grid md={12} lg={6} mb={2}>
                                             <JobCard i={i} item={project} />
                                         </Grid>
                                     ))}

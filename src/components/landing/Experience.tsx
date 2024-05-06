@@ -24,10 +24,9 @@ export const Experience = () => {
 
     return (
         <Container maxWidth="xl">
-            <Grid container spacing={1} pt="20vh" pb={"25vh"} >
+            <Grid container spacing={1} pt="20vh" pb="10vh">
                 <Grid item xs={12} md={12} lg={12} textAlign="center" >
-                    <Typography variant="h2" mb={2} display={"inline"}>Mi </Typography>
-                    <Typography variant="h2" mb={2} display={"inline"} color={"secondary"}>experiencia </Typography>
+                    <Typography variant="h2" mb={2} display={"inline"} color={"secondary"}>Experiencia </Typography>
                     <Typography variant="h2" mb={2} display={"inline"}>laboral</Typography>
                     {/* <Typography variant="body1">
                         A lo largo de los años, he participado en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.

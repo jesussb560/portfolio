@@ -1,4 +1,6 @@
-import { Button, Container, Grid, Typography } from "@mui/material";
+import GitHubIcon from '@mui/icons-material/GitHub';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import { Container, Grid, IconButton, Stack, Typography } from "@mui/material";
 
 export const Title = () => {
     return (
@@ -13,8 +15,15 @@ export const Title = () => {
                     <Grid item xs={12} md={12} lg={12} textAlign="left">
                         <Typography variant="h1" display={"inline"}>desarrollador backend</Typography>
                     </Grid>
-                    <Grid item xs={12} md={12} lg={12} textAlign="left" mt={2}>
-                        <Button variant="contained" color="secondary" size="large">Descargar CV</Button>
+                    <Grid item xs={12} md={12} mt={2}>
+                        <Stack direction="row" spacing={1}>
+                            <IconButton color="secondary">
+                                <LinkedInIcon sx={{ fontSize: 35 }} />
+                            </IconButton>
+                            <IconButton color="secondary">
+                                <GitHubIcon sx={{ fontSize: 35 }} />
+                            </IconButton>
+                        </Stack>
                     </Grid>
                 </Grid>
             </Container>
