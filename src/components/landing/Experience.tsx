@@ -1,4 +1,4 @@
-import { Box, Button, Container, Grid, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
+import { Box, Button, Container, Grid, Link, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
 import { useState } from "react";
 import { primaryColorV2 } from "../../theme";
 
@@ -6,13 +6,8 @@ const steps = [
     {
         label: 'Inosoft',
         time: '2021 - presente',
-        description: `Propuse y lideré la implementación de diferentes tecnologías, prácticas y arquitecturas de software para proyectos de clientes importantes, resultando en aumentos de rendimiento y productividad significativos en comparación con sistemas anteriores.`,
-    },
-    {
-        label: '???',
-        time: '',
-        description: `...`,
-    },
+        description: 'Desarrollé sistemas completos para diversos sectores, incluyendo medio ambiente, finanzas, comercio y sector público. Ademas, propuse y lideré la implementación de diferentes tecnologías, prácticas y arquitecturas de software para proyectos de clientes importantes, resultando en aumentos de rendimiento y productividad significativos en comparación con sistemas anteriores.',
+    }
 ];
 
 export const Experience = () => {
@@ -26,8 +21,7 @@ export const Experience = () => {
         <Container maxWidth="xl">
             <Grid container spacing={1} pt="20vh" pb="10vh">
                 <Grid item xs={12} md={12} lg={12} textAlign="center" >
-                    <Typography variant="h2" mb={2} display={"inline"} color={"secondary"}>Experiencia </Typography>
-                    <Typography variant="h2" mb={2} display={"inline"}>laboral</Typography>
+                    <Typography variant="h2" mb={2}>Experiencia laboral</Typography>
                     {/* <Typography variant="body1">
                         A lo largo de los años, he participado en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.
                     </Typography> */}
@@ -38,25 +32,29 @@ export const Experience = () => {
                             {steps.map((step, i) => (
                                 <Step key={step.label}>
                                     <StepLabel>
-                                        <Typography variant="h4">{step.label}</Typography>
+                                        <Link href="https://inosoft.cl/index.html">
+                                            <Typography variant="h4">{step.label}</Typography>
+                                        </Link>
                                     </StepLabel>
                                     <StepContent>
                                         <Typography variant="body1" mb={2}>{step.time}</Typography>
                                         <Box sx={{ border: `2px solid ${primaryColorV2}`, padding: 2, borderRadius: 4 }}>
-                                            <Typography variant="subtitle2">{step.description}</Typography>
+                                            <Typography variant="subtitle2" display={"block"}>{step.description}</Typography>
                                         </Box>
-                                        <Box sx={{ mb: 2, mt: 2 }}>
-                                            <div>
-                                                <Button
-                                                    variant="contained"
-                                                    color="secondary"
-                                                    onClick={handleNext}
-                                                    sx={{ mt: 1, mr: 1 }}
-                                                >
-                                                    {i === steps.length - 1 ? 'Volver' : 'Continuar'}
-                                                </Button>
-                                            </div>
-                                        </Box>
+                                        {steps.length > 1 && (
+                                            <Box sx={{ mb: 2, mt: 2 }}>
+                                                <div>
+                                                    <Button
+                                                        variant="contained"
+                                                        color="secondary"
+                                                        onClick={handleNext}
+                                                        sx={{ mt: 1, mr: 1 }}
+                                                    >
+                                                        {i === steps.length - 1 ? 'Volver' : 'Continuar'}
+                                                    </Button>
+                                                </div>
+                                            </Box>
+                                        )}
                                     </StepContent>
                                 </Step>
                             ))}

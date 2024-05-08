@@ -8,7 +8,7 @@ interface CardProps {
 
 export const MiniIconCard: React.FC<CardProps> = ({ icon, title, text }) => {
     return (
-        <Card>
+        <Card sx={{ backgroundColor: 'transparent' }}>
             <CardContent>
                 {icon}
                 <Typography variant="h5">{title}</Typography>

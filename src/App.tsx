@@ -22,7 +22,6 @@ function App() {
             justifyContent: "flex-end",
             padding: appTheme.spacing(0, 3),
             ...appTheme.mixins.toolbar,
-            marginTop: appTheme.mixins.toolbar.minHeight,
           }}
         />
         <AppRoutes />

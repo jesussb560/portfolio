@@ -4,6 +4,7 @@ export const primaryColor = '#0d1016';
 export const primaryColorV2 = '#161C25';
 // export const secondaryColor = '#FCA311';
 export const secondaryColor = '#F05230';
+export const secondaryColorV2 = '#C4462B';
 export const tertiaryColor = '#9999A1';
 export const white = '#fff'
 
@@ -11,6 +12,7 @@ export const titleFont: string = "Roboto Condensed, sans-serif;";
 export const bodyFont: string = "Lato, sans-serif";
 
 export const appTheme = createTheme({
+
     palette: {
         background: {
             default: primaryColor
@@ -39,6 +41,36 @@ export const appTheme = createTheme({
     },
     shadows: Array(25).fill("none") as Shadows,
     components: {
+        MuiCssBaseline: {
+            styleOverrides: {
+                html: {
+                    scrollBehavior: 'smooth',
+                },
+                body: {
+                    "&::-webkit-scrollbar, & *::-webkit-scrollbar": {
+                        color: 'transparent',
+                        width: '4px'
+                    },
+                    "&::-webkit-scrollbar-thumb, & *::-webkit-scrollbar-thumb": {
+                        borderRadius: 15,
+                        backgroundColor: secondaryColorV2,
+                        minWidth: '1px'
+                    },
+                    "&::-webkit-scrollbar-thumb:focus, & *::-webkit-scrollbar-thumb:focus": {
+                        backgroundColor: secondaryColorV2,
+                    },
+                    "&::-webkit-scrollbar-thumb:active, & *::-webkit-scrollbar-thumb:active": {
+                        backgroundColor: secondaryColorV2,
+                    },
+                    "&::-webkit-scrollbar-thumb:hover, & *::-webkit-scrollbar-thumb:hover": {
+                        backgroundColor: secondaryColor,
+                    },
+                    "&::-webkit-scrollbar-corner, & *::-webkit-scrollbar-corner": {
+                        backgroundColor: secondaryColorV2,
+                    },
+                }
+            }
+        },
         MuiCard: {
             styleOverrides: {
                 root: {
@@ -122,6 +154,43 @@ export const appTheme = createTheme({
                     font: titleFont
                 }
             }
+        },
+        MuiOutlinedInput: {
+            defaultProps: {
+                sx: {
+                    "& .MuiOutlinedInput-notchedOutline": {
+                        border: `2px solid ${secondaryColorV2}`,
+                    },
+                    "&:hover > .MuiOutlinedInput-notchedOutline": {
+                        border: `2px solid ${white}`,
+                    },
+                },
+            },
+            styleOverrides: {
+                root: {
+                    borderRadius: 4,
+                    color: white,
+                    backgroundColor: secondaryColorV2,
+                },
+                input: {
+                    "&:-webkit-autofill": {
+                        "-webkit-box-shadow": `0 0 0 100px ${secondaryColorV2} inset`,
+                        "-webkit-text-fill-color": white,
+                    },
+                },
+            },
+        },
+        MuiInputLabel: {
+            styleOverrides: {
+                root: {
+                    color: white,
+                    fontFamily: bodyFont,
+                    fontSize: 20,
+                    '&.Mui-focused': {
+                        color: white, // Cambia el color cuando el input está enfocado
+                    },
+                },
+            },
         },
     }
 });

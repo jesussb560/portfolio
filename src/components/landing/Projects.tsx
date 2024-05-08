@@ -3,6 +3,11 @@ import { Container, Grid, Tab, Typography } from "@mui/material";
 import { useState } from "react";
 import { JobStep } from "../../types/landing.type";
 import { JobCard } from "../global/JobCard";
+import GiraImg from '../../assets/gira-img.jpg';
+import ProbImg from "../../assets/prob-img.png";
+import VipureImg from "../../assets/vipure-img.jpg";
+import WobeImg from "../../assets/wobe-img.png";
+import InvoImg from "../../assets/invo-img.png";
 
 const jobs: JobStep[] = [
     {
@@ -12,48 +17,74 @@ const jobs: JobStep[] = [
             {
                 title: 'GIRA',
                 workplace: 'Inosoft',
-                description: `Aplicación móvil que permite recibir puntos a cambio de reciclar materiales de todo tipo. Estos puntos son utilizados como descuento en las compras en una gran cadena de supermercados en Ecuador.`,
+                url: 'https://gira.com.ec/app-gira/',
+                image: GiraImg,
+                description: `Aplicaciónes moviles y sistema de administración que permiten recibir puntos a cambio de reciclar materiales de todo tipo. Estos puntos pueden ser utilizados como descuento en las compras en una gran cadena de supermercados en Ecuador.`,
                 technologies: [
                     'Spring Boot',
                     'PostgreSQL',
                     'Git',
-                    'JavaScript'
+                    'JavaScript',
+                    'Azure',
                 ]
             },
             {
-                title: 'Vipure Monitor',
+                title: 'Vipure',
                 workplace: 'Inosoft',
+                image: VipureImg,
                 description: 'Aplicación móvil para el monitoreo de parametros en maquinas y procesos relacionados con el tratamiento y reúso del agua.',
                 technologies: [
                     'Spring Boot',
                     'Git',
-                    'Flutter'
+                    'Flutter',
+                    'JavaScript',
+                    'Azure'
                 ]
             },
             {
-                title: 'RAS 2',
+                title: 'RAS V2',
                 workplace: 'Inosoft',
-                description: 'Sed ut perspiciatis unde em quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eo',
+                image: ProbImg,
+                description: 'Sistema para administrar tareas destinadas a recursos humanos para importantes clientes y una gran cantidad de personas.',
                 technologies: [
                     'NodeJs',
+                    'Typescript',
                     'Git',
-                    'React'
+                    'React',
+                    'Azure'
+                ]
+            },
+            {
+                title: 'Wobe',
+                workplace: 'Inosoft',
+                url: 'https://wobesocial.com/app/',
+                image: WobeImg,
+                description: 'Aplicación móvil y sistema de administración para un proyecto dedicado a ofrecer espacios de descanso para repartidores mediante una suscripción mensual en la región Metropolitana.',
+                technologies: [
+                    'NodeJs',
+                    'Typescript',
+                    'Git',
+                    'React',
+                    'AWS'
                 ]
             }
         ]
     },
     {
         label: 'Personales',
-        description: 'Sistemas desarrollados a modo de aprendizaje o demostración.',
+        description: 'Sistemas desarrollados a modo de aprendizaje.',
         projects: [
             {
                 title: 'Procesamiento de facturas',
-                workplace: 'Inosoft',
-                image: 'https://gira.com.ec/wp-content/uploads/2022/12/iMAGEN-TELEFONO-APP-679x1024.png',
-                description: 'blabla',
+                workplace: 'Personal',
+                image: InvoImg,
+                description: 'Sistema basado en microservicios capaz de procesar documentos tributarios electrónicos (DTE) provenientes de correos en grandes cantidades.',
                 technologies: [
                     'Spring boot',
-                    'PostgreSQL'
+                    'PostgreSQL',
+                    'Kafka',
+                    'Docker',
+                    'Keycloak'
                 ]
             }
         ]
@@ -61,7 +92,6 @@ const jobs: JobStep[] = [
 ]
 
 export const Projects = () => {
-
 
     const [value, setValue] = useState('0');
     const handleChange = (_event: React.SyntheticEvent, newValue: string) => {
@@ -74,7 +104,7 @@ export const Projects = () => {
                 <Grid item xs={12} md={12} lg={12} textAlign="center" >
                     <Typography variant="h2" mb={2}>Proyectos</Typography>
                     <Typography variant="body1">
-                        A lo largo de los años, he participado en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.
+                        A lo largo de los años, Participé en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.
                     </Typography>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={12} mt={4}>
@@ -88,7 +118,7 @@ export const Projects = () => {
                             <TabPanel value={`${i}`} key={i}>
                                 <Grid container>
                                     {jobs[Number(value)].projects.map((project, i) => (
-                                        <Grid md={12} lg={6} mb={2}>
+                                        <Grid sm={12} md={6} lg={4} mb={1}>
                                             <JobCard i={i} item={project} />
                                         </Grid>
                                     ))}

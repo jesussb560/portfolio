@@ -9,5 +9,6 @@ export type StepProject = {
     workplace: string;
     description: string;
     image?: string;
+    url?: string,
     technologies: string[];
 }

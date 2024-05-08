@@ -1,7 +1,4 @@
-import AssessmentIcon from "@mui/icons-material/Assessment";
-import DiscountIcon from "@mui/icons-material/Discount";
-import MenuIcon from '@mui/icons-material/Menu';
-import PersonIcon from "@mui/icons-material/Person";
+
 import { Button, List, ListItem, ListItemButton, ListItemIcon, ListItemText, Typography } from '@mui/material';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
@@ -11,42 +8,40 @@ import Drawer from '@mui/material/Drawer';
 import IconButton from '@mui/material/IconButton';
 import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
 import { white } from '../../theme';
+
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
+import WavingHandIcon from '@mui/icons-material/WavingHand';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
+import CallIcon from '@mui/icons-material/Call';
+import MenuIcon from '@mui/icons-material/Menu';
 
 const drawerWidth = 240;
 const routes = [
     {
+        name: "Inicio",
+        icon: <KeyboardDoubleArrowUpIcon style={{ color: white }} />,
+        href: "#title",
+    },
+    {
         name: "Sobre mi",
-        icon: <AssessmentIcon style={{ color: white }} />,
-        href: "/subscription-payments",
+        icon: <WavingHandIcon style={{ color: white }} />,
+        href: "#about",
     },
     {
         name: "Experiencia",
-        icon: <PersonIcon style={{ color: white }} />,
-        href: "/users",
+        icon: <TimelineIcon style={{ color: white }} />,
+        href: "#experience",
     },
     {
         name: "Proyectos",
-        icon: <DiscountIcon style={{ color: white }} />,
-        href: "/promotions",
+        icon: <IntegrationInstructionsIcon style={{ color: white }} />,
+        href: "#projects",
     },
-    // {
-    //     name: "Puntos",
-    //     icon: <FmdGoodIcon style={{ color: white }} />,
-    //     href: "/spots",
-    // },
-    // {
-    //     name: "Imagenes carrusel",
-    //     icon: <ViewCarouselIcon style={{ color: white }} />,
-    //     href: "/carousel-images/create",
-    // },
 ];
 
-const navItems = ['Sobre mi', 'Experiencia', 'Proyectos'];
-
 export default function DrawerAppBar() {
-    const navigate = useNavigate();
     const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
 
 
@@ -60,7 +55,7 @@ export default function DrawerAppBar() {
             <List>
                 {routes.map((route, index) => (
                     <ListItem key={index} disablePadding>
-                        <ListItemButton onClick={() => navigate(route.href)}>
+                        <ListItemButton href={route.href}>
                             <ListItemIcon>{route.icon}</ListItemIcon>
                             <ListItemText primary={route.name} />
                         </ListItemButton>
@@ -92,9 +87,9 @@ export default function DrawerAppBar() {
                         JJDEV
                     </Typography>
                     <Box sx={{ display: { xs: 'none', sm: 'block' } }}>
-                        {navItems.map((item) => (
-                            <Button key={item} sx={{ color: '#fff' }}>
-                                {item}
+                        {routes.map((item) => (
+                            <Button key={item.href} sx={{ color: '#fff' }} href={item.href}>
+                                {item.name}
                             </Button>
                         ))}
                     </Box>
