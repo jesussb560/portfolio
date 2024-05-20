@@ -1,17 +1,19 @@
 import { Box, Button, Container, Grid, Link, Step, StepContent, StepLabel, Stepper, Typography } from "@mui/material";
 import { useState } from "react";
 import { primaryColorV2 } from "../../theme";
+import { useTranslation } from "react-i18next";
 
-const steps = [
-    {
-        label: 'Inosoft',
-        time: '2021 - presente',
-        description: 'Desarrollé sistemas completos para diversos sectores, incluyendo medio ambiente, finanzas, comercio y sector público. Ademas, propuse y lideré la implementación de diferentes tecnologías, prácticas y arquitecturas de software para proyectos de clientes importantes, resultando en aumentos de rendimiento y productividad significativos en comparación con sistemas anteriores.',
-    }
-];
 
 export const Experience = () => {
     const [activeStep, setActiveStep] = useState(0);
+    const { t } = useTranslation();
+    const steps = [
+        {
+            label: 'Inosoft',
+            time: t("experience.steps.0.time"),
+            description: t("experience.steps.0.description"),
+        }
+    ];
 
     const handleNext = () => {
         setActiveStep((prevActiveStep) => ((prevActiveStep + 2) > steps.length) ? prevActiveStep - 1 : prevActiveStep + 1);
@@ -21,7 +23,7 @@ export const Experience = () => {
         <Container maxWidth="xl">
             <Grid container spacing={1} pt="20vh" pb="10vh">
                 <Grid item xs={12} md={12} lg={12} textAlign="center" >
-                    <Typography variant="h2" mb={2}>Experiencia laboral</Typography>
+                    <Typography variant="h2" mb={2}>{t("experience.title")}</Typography>
                     {/* <Typography variant="body1">
                         A lo largo de los años, he participado en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.
                     </Typography> */}

@@ -2,7 +2,6 @@ import { Shadows, createTheme } from "@mui/material";
 
 export const primaryColor = '#0d1016';
 export const primaryColorV2 = '#161C25';
-// export const secondaryColor = '#FCA311';
 export const secondaryColor = '#F05230';
 export const secondaryColorV2 = '#C4462B';
 export const tertiaryColor = '#9999A1';

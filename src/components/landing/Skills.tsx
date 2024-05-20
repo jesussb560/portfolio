@@ -4,6 +4,7 @@ import { Container, Grid, Typography } from "@mui/material";
 import { AngularOriginal, DockerOriginal, GitOriginal, JavaOriginal, JunitOriginal, MavenOriginal, MicrosoftsqlserverOriginal, NodejsOriginal, PostgresqlOriginal, ReactOriginal, SpringOriginal, TypescriptOriginal } from 'devicons-react';
 import { primaryColorV2 } from "../../theme";
 import { MiniIconCard } from "../global/MiniIconCard";
+import { useTranslation } from "react-i18next";
 
 const skills = [
     {
@@ -47,7 +48,7 @@ const skills = [
         icon: <JunitOriginal size={40} />
     },
     {
-        name: "Microservicios",
+        name: "Microservices",
         icon: <AppsIcon sx={{ fontSize: 40 }} color="success" />
     },
     {
@@ -57,13 +58,14 @@ const skills = [
 ]
 
 export const Skills = () => {
+    const { t } = useTranslation();
     return (
         <Container maxWidth="xl">
             <Grid container pb="25vh">
                 <Grid item xs={12} md={12} lg={12} mb={2} textAlign="center">
-                    <Typography variant="h2" mb={2}>Habilidades</Typography>
+                    <Typography variant="h2" mb={2}>{t("skills.title")}</Typography>
                     <Typography variant="body1">
-                        He desarrollado con multitud de tecnologías, pero estos son mis puntos fuertes.
+                        {t("skills.subtitle")}
                     </Typography>
                 </Grid>
                 <Grid container spacing={1} sx={{ border: `2px solid ${primaryColorV2}`, padding: 2, borderRadius: 4 }}>

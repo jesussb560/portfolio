@@ -16,34 +16,46 @@ import TimelineIcon from '@mui/icons-material/Timeline';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
 import CallIcon from '@mui/icons-material/Call';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useTranslation } from 'react-i18next';
+import { ChangeLanguage } from '../global/ChangeLanguage';
 
 const drawerWidth = 240;
-const routes = [
-    {
-        name: "Inicio",
-        icon: <KeyboardDoubleArrowUpIcon style={{ color: white }} />,
-        href: "#title",
-    },
-    {
-        name: "Sobre mi",
-        icon: <WavingHandIcon style={{ color: white }} />,
-        href: "#about",
-    },
-    {
-        name: "Experiencia",
-        icon: <TimelineIcon style={{ color: white }} />,
-        href: "#experience",
-    },
-    {
-        name: "Proyectos",
-        icon: <IntegrationInstructionsIcon style={{ color: white }} />,
-        href: "#projects",
-    },
-];
+
 
 export default function DrawerAppBar() {
-    const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
 
+    const [mobileOpen, setMobileOpen] = React.useState<boolean>(false);
+    const { t } = useTranslation();
+
+    const routes = [
+        {
+            name: t("nav.title"),
+            icon: <KeyboardDoubleArrowUpIcon style={{ color: white }} />,
+            href: "#title",
+        },
+        {
+            name: t("nav.about"),
+            icon: <WavingHandIcon style={{ color: white }} />,
+            href: "#about",
+        },
+        {
+            name: t("nav.experience"),
+            icon: <TimelineIcon style={{ color: white }} />,
+            href: "#experience",
+        },
+        {
+            name: t("nav.projects"),
+            icon: <IntegrationInstructionsIcon style={{ color: white }} />,
+            href: "#projects",
+        },
+    ];
+
+    const btnRoutes = [
+        {
+            name: t("nav.language"),
+            button: <ChangeLanguage />,
+        },
+    ]
 
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen);
@@ -61,6 +73,15 @@ export default function DrawerAppBar() {
                         </ListItemButton>
                     </ListItem>
                 ))}
+                {btnRoutes.map((route, index) => (
+                    <ListItem key={index} disablePadding>
+                        <ListItemButton>
+                            <ListItemIcon>{route.button}</ListItemIcon>
+                            <ListItemText primary={route.name} />
+                        </ListItemButton>
+                    </ListItem>
+                ))}
+
             </List>
         </div>
     );
@@ -92,6 +113,7 @@ export default function DrawerAppBar() {
                                 {item.name}
                             </Button>
                         ))}
+                        <ChangeLanguage />
                     </Box>
                 </Toolbar>
             </AppBar>

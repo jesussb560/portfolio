@@ -2,6 +2,7 @@ import EmailIcon from '@mui/icons-material/Email';
 import GitHubIcon from '@mui/icons-material/GitHub';
 import LinkedInIcon from '@mui/icons-material/LinkedIn';
 import { IconButton, Stack, Tooltip } from "@mui/material";
+import { useTranslation } from 'react-i18next';
 
 const linkedInUrl = 'https://www.linkedin.com/in/jesussb';
 const gitHubUrl = 'https://github.com/jesussb560';
@@ -9,10 +10,11 @@ const email = 'jesus.segurab560@gmail.com';
 
 export const SocialMedia = () => {
 
+    const { t } = useTranslation();
+
     const copyToClipboard = async () => {
         await navigator.clipboard.writeText(email);
     };
-
 
     return (
         <Stack direction="row" spacing={1}>
@@ -23,7 +25,7 @@ export const SocialMedia = () => {
                 <GitHubIcon sx={{ fontSize: 35 }} />
             </IconButton>
             <IconButton color="secondary" onClick={copyToClipboard}>
-                <Tooltip title="Copiar">
+                <Tooltip title={t("tooltips.1")}>
                     <EmailIcon sx={{ fontSize: 35 }} />
                 </Tooltip>
             </IconButton>

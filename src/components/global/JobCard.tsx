@@ -3,8 +3,12 @@ import { primaryColor, secondaryColor } from "../../theme";
 import { StepProject } from "../../types/landing.type";
 import Background from '../../assets/circle-scatter.svg';
 import LanguageIcon from '@mui/icons-material/Language';
+import { useTranslation } from "react-i18next";
 
 export const JobCard = ({ item, i }: { item: StepProject, i: number }) => {
+
+    const { t } = useTranslation();
+
     return (
         <Grid mx={1} key={i}>
             <Card sx={{ backgroundColor: primaryColor }}>
@@ -21,7 +25,7 @@ export const JobCard = ({ item, i }: { item: StepProject, i: number }) => {
                         </Grid>
                         {item.url && (
                             <Grid item xs={2}>
-                                <Tooltip title="Nueva pestaña">
+                                <Tooltip title={t("tooltips.0")}>
                                     <Link href={item.url} target="_blank">
                                         <LanguageIcon sx={{ float: 'right', cursor: 'pointer' }} color="info" />
                                     </Link>

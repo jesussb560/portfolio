@@ -7,24 +7,29 @@ import { Button, Container, Grid, Typography } from "@mui/material";
 import { IconCard } from "../global/IconCard";
 import DownloadIcon from '@mui/icons-material/Download';
 import Curriculum from '../../assets/cv-juan-jesus-segura-barria.pdf';
+import CurriculumEn from '../../assets/cv-juan-jesus-segura-barria_en.pdf';
+import { useTranslation } from 'react-i18next';
 
 export const About = () => {
+
+    const { i18n, t } = useTranslation();
+
     return (
         <Container maxWidth="xl">
             <Grid container spacing={2} pt="20vh" pb={"25vh"} display={"flex"} justifyContent={"space-between"} >
                 <Grid item xs={12} md={12} lg={6} textAlign="left">
                     <Grid item xs={12} sm={12} md={12} lg={12}>
-                        <Typography variant="h2" mb={2}>Sobre mí</Typography>
+                        <Typography variant="h2" mb={2}>{t("about.title")}</Typography>
                         <Typography variant="body1">
-                            Web developer con casi tres años de experiencia en la creación y mantención de soluciones digitales. He trabajado en diversos proyectos para clientes nacionales y extranjeros que abarcan desde sitios web corporativos hasta aplicaciones móviles de gran complejidad.
+                            {t("about.body")}
                         </Typography>
                         <Typography variant="body1">
-                            Con sólidos conocimientos en Spring Boot y su ecosistema, como también en React, Docker, diversos patrones de diseño y arquitecturas de software, he colaborado con equipos multidisciplinarios para llevar a cabo proyectos exitosos desarrollados con un enfoque en el rendimiento, las buenas prácticas y la mantenibilidad.
+                            {t("about.body_2")}
                         </Typography>
                     </Grid>
                     {/* este */}
                     <Grid item xs={12} sm={12} md={12} lg={12} mt={2} mb={{ xs: 4 }} justifyContent="flex-end">
-                        <Button startIcon={<DownloadIcon />} variant="contained" color="secondary" href={Curriculum} target='_blank' size="large">Descargar CV</Button>
+                        <Button startIcon={<DownloadIcon />} variant="contained" color="secondary" href={i18n.language === 'es' ? Curriculum : CurriculumEn} target='_blank' size="large">{t("about.download_btn")}</Button>
                     </Grid>
                 </Grid>
                 <Grid item xs={12} sm={12} md={12} lg={6} >
@@ -32,30 +37,30 @@ export const About = () => {
                         <Grid item xs={12} sm={12} md={6} lg={12} xl={6} textAlign={"center"}>
                             <IconCard
                                 icon={<TimelineIcon sx={{ fontSize: 60, color: '#fff' }} />}
-                                title="Experiencia"
-                                text="Más de dos años de experiencia en proyectos de desarrollo fullstack."
+                                title={t("about.icons.0.title")}
+                                text={t("about.icons.0.description")}
                                 active
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6} xl={6} textAlign={"center"}>
                             <IconCard
                                 icon={<ThumbUpAltIcon sx={{ fontSize: 60 }} color="secondary" />}
-                                title="Buenas practicas"
-                                text="Enfocado en la implementación de buenas prácticas de programación."
+                                title={t("about.icons.1.title")}
+                                text={t("about.icons.1.description")}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={6} xl={6} textAlign={"center"}>
                             <IconCard
                                 icon={<LanguageIcon sx={{ fontSize: 60 }} color="secondary" />}
-                                title="Inglés"
-                                text="Tengo un nivel de inglés intermedio, equivalente al nivel B2."
+                                title={t("about.icons.2.title")}
+                                text={t("about.icons.2.description")}
                             />
                         </Grid>
                         <Grid item xs={12} sm={12} md={6} lg={12} xl={6} textAlign={"center"}>
                             <IconCard
                                 icon={<ErrorIcon sx={{ fontSize: 60 }} color="secondary" />}
-                                title="Resolución de errores"
-                                text="Habilidad para identificar y corregir errores eficientemente."
+                                title={t("about.icons.3.title")}
+                                text={t("about.icons.3.description")}
                             />
                         </Grid>
                     </Grid>
