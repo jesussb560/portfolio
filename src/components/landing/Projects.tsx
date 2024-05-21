@@ -10,8 +10,6 @@ import WobeImg from "../../assets/wobe-img.png";
 import InvoImg from "../../assets/invo-img.png";
 import { useTranslation } from "react-i18next";
 
-
-
 export const Projects = () => {
 
     const [value, setValue] = useState('0');
@@ -117,15 +115,15 @@ export const Projects = () => {
                     <TabContext value={`${value}`}>
                         <TabList onChange={handleChange} centered>
                             {jobs.map((job, i) => (
-                                <Tab label={job.label} value={`${i}`} />
+                                <Tab label={job.label} value={`${i}`} key={i} />
                             ))}
                         </TabList>
                         {jobs.map((_job, i) => (
                             <TabPanel value={`${i}`} key={i}>
                                 <Grid container>
                                     {jobs[Number(value)].projects.map((project, i) => (
-                                        <Grid sm={12} md={6} lg={4} mb={1}>
-                                            <JobCard i={i} item={project} />
+                                        <Grid item sm={12} md={6} lg={4} mb={1} key={i}>
+                                            <JobCard item={project} />
                                         </Grid>
                                     ))}
                                 </Grid>

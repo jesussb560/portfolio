@@ -24,12 +24,9 @@ export const Experience = () => {
             <Grid container spacing={1} pt="20vh" pb="10vh">
                 <Grid item xs={12} md={12} lg={12} textAlign="center" >
                     <Typography variant="h2" mb={2}>{t("experience.title")}</Typography>
-                    {/* <Typography variant="body1">
-                        A lo largo de los años, he participado en el desarrollo de multitud de proyectos para diferentes sectores e importantes clientes.
-                    </Typography> */}
                 </Grid>
-                <Grid xs={12}>
-                    <Box sx={{}}>
+                <Grid>
+                    <Box >
                         <Stepper activeStep={activeStep} orientation="vertical">
                             {steps.map((step, i) => (
                                 <Step key={step.label}>

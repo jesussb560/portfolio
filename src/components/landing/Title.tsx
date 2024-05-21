@@ -2,6 +2,7 @@ import { Container, Grid, Typography } from "@mui/material";
 import { useTranslation } from "react-i18next";
 import { secondaryColor } from "../../theme";
 import { SocialMedia } from './SocialMedia';
+
 export const Title = () => {
 
     const { t } = useTranslation();

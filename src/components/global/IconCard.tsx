@@ -3,7 +3,7 @@ import { primaryColor, secondaryColor, tertiaryColor } from "../../theme";
 import Background from '../../assets/circle-scatter.svg';
 
 interface CardProps {
-    icon: React.ReactElement<SvgIconProps>; // This specifies the icon as a React element with SvgIconProps
+    icon: React.ReactElement<SvgIconProps>;
     title: string;
     text?: string;
     active?: boolean;

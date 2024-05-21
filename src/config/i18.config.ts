@@ -9,7 +9,6 @@ i18n
     .use(initReactI18next)
     .init({
         returnObjects: true,
-        debug: true,
         resources: {
             es: {
                 translation: { ...esTranslation }

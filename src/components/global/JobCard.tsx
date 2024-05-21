@@ -1,16 +1,16 @@
-import { Box, Card, CardContent, CardMedia, Chip, Grid, Link, Stack, Tooltip, Typography } from "@mui/material";
+import LanguageIcon from '@mui/icons-material/Language';
+import { Card, CardContent, CardMedia, Chip, Grid, Link, Stack, Tooltip, Typography } from "@mui/material";
+import { useTranslation } from "react-i18next";
+import Background from '../../assets/circle-scatter.svg';
 import { primaryColor, secondaryColor } from "../../theme";
 import { StepProject } from "../../types/landing.type";
-import Background from '../../assets/circle-scatter.svg';
-import LanguageIcon from '@mui/icons-material/Language';
-import { useTranslation } from "react-i18next";
 
-export const JobCard = ({ item, i }: { item: StepProject, i: number }) => {
+export const JobCard = ({ item }: { item: StepProject }) => {
 
     const { t } = useTranslation();
 
     return (
-        <Grid mx={1} key={i}>
+        <Grid mx={1}>
             <Card sx={{ backgroundColor: primaryColor }}>
                 <CardContent sx={{
                     padding: 0, "&:last-child": {
@@ -44,15 +44,12 @@ export const JobCard = ({ item, i }: { item: StepProject, i: number }) => {
                             <Typography variant="body1" >{item.description}</Typography>
                         </Grid>
                         <Stack direction="row" sx={{ flexWrap: 'wrap', gap: 1 }}>
-                            {item.technologies.map(tec => (
-                                <Chip label={tec} sx={{ backgroundColor: secondaryColor, color: 'black' }} />
+                            {item.technologies.map((tec, i) => (
+                                <Chip label={tec} key={i} sx={{ backgroundColor: secondaryColor, color: 'black' }} />
                             ))}
                         </Stack>
                     </Grid>
-
-                    {/* este */}
                 </CardContent>
-
             </Card>
         </Grid >
     )

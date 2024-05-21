@@ -10,17 +10,15 @@ import Toolbar from '@mui/material/Toolbar';
 import * as React from 'react';
 import { white } from '../../theme';
 
-import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
-import WavingHandIcon from '@mui/icons-material/WavingHand';
-import TimelineIcon from '@mui/icons-material/Timeline';
 import IntegrationInstructionsIcon from '@mui/icons-material/IntegrationInstructions';
-import CallIcon from '@mui/icons-material/Call';
+import KeyboardDoubleArrowUpIcon from '@mui/icons-material/KeyboardDoubleArrowUp';
 import MenuIcon from '@mui/icons-material/Menu';
+import TimelineIcon from '@mui/icons-material/Timeline';
+import WavingHandIcon from '@mui/icons-material/WavingHand';
 import { useTranslation } from 'react-i18next';
 import { ChangeLanguage } from '../global/ChangeLanguage';
 
 const drawerWidth = 240;
-
 
 export default function DrawerAppBar() {
 
