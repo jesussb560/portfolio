@@ -1,8 +1,9 @@
-import { GlobalStyles, ThemeProvider } from "@mui/material"
+import { ThemeProvider } from "@mui/material/styles"
 import { AppRoutes } from "./components/navigation/AppRoutes"
 import { appTheme, primaryColor } from "./theme"
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import { GlobalStyles } from "@mui/material";
 function App() {
 
   return (

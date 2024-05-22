@@ -1,7 +1,6 @@
-import { Code } from "@mui/icons-material";
 import AppsIcon from '@mui/icons-material/Apps';
 import { Container, Grid, Typography } from "@mui/material";
-import { AngularOriginal, DockerOriginal, GitOriginal, JavaOriginal, JunitOriginal, NodejsOriginal, PostgresqlOriginal, ReactOriginal, SpringOriginal, TypescriptOriginal } from 'devicons-react';
+import { AmazonwebservicesOriginalWordmark, AngularOriginal, DockerOriginal, GitOriginal, JavaOriginal, JunitOriginal, NodejsOriginal, PostgresqlOriginal, ReactOriginal, SpringOriginal, TypescriptOriginal } from 'devicons-react';
 import { useTranslation } from "react-i18next";
 import { primaryColorV2 } from "../../theme";
 import { MiniIconCard } from "../global/MiniIconCard";
@@ -48,12 +47,12 @@ const skills = [
         icon: <JunitOriginal size={40} />
     },
     {
-        name: "Microservices",
-        icon: <AppsIcon sx={{ fontSize: 40 }} color="success" />
+        name: "AWS",
+        icon: <AmazonwebservicesOriginalWordmark size={40} />
     },
     {
-        name: "Rest",
-        icon: <Code sx={{ fontSize: 40 }} color="success" />
+        name: "Microservices",
+        icon: <AppsIcon sx={{ fontSize: 40 }} color="success" />
     }
 ]
 
@@ -70,7 +69,7 @@ export const Skills = () => {
                 </Grid>
                 <Grid container spacing={1} sx={{ border: `2px solid ${primaryColorV2}`, padding: 2, borderRadius: 4 }}>
                     {skills.map(skill => (
-                        <Grid item sm={6} md={2} textAlign={"center"} key={skill.name}>
+                        <Grid item xs={6} sm={4} md={2} textAlign={"center"} key={skill.name}>
                             <MiniIconCard
                                 icon={skill.icon}
                                 title={skill.name}

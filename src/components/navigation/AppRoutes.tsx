@@ -1,7 +1,7 @@
+import { Box } from "@mui/material"
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 import { Landing } from "../landing/Landing"
 import DrawerAppBar from "./DrawerAppBar"
-import { Box } from "@mui/material"
 
 export const AppRoutes = () => {
     return (
@@ -9,7 +9,7 @@ export const AppRoutes = () => {
             <DrawerAppBar />
             <Box component="main">
                 <Routes>
-                    <Route path="/" element={<Landing />} />
+                    <Route path="/portfolio" element={<Landing />} />
                 </Routes>
             </Box>
         </BrowserRouter>
